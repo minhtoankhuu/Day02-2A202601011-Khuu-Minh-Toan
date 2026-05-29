@@ -5,7 +5,7 @@
 | Cluster                                        | Candidate examples                                                                                                    | Pattern chung                                                            |
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | AI learning roadmap / tutorial overload        | Học AI quá nhanh nhưng không hiểu nền tảng ML/LLM, xem tutorial rồi copy code, không biết nên học Data/ML/GenAI trước | Người mới học AI bị overload thông tin và thiếu workflow học tập rõ ràng |
-| Knowledge fragmentation / assignment confusion | Requirement rải rác nhiều nơi, Discord decision search, quá nhiều tài liệu không biết đọc gì trước                    | Thông tin nằm nhiều source, khó tìm đúng context hoặc requirement        |
+| Multi-source Information Overload | Requirement/task bị rải rác nhiều nơi, quá nhiều tài liệu không biết đọc gì trước, phải check Discord/outlook/zalo/teams/ liên tục để không miss thông tin | Thông tin học tập và assignment bị phân tán qua nhiều kênh, khiến người học mất thời gian theo dõi và dễ bỏ sót update quan trọng |
 | Dev onboarding / setup friction                | Setup Git/GitHub workflow lâu, cài môi trường AI/project khó                                                          | Người mới mất nhiều thời gian onboarding trước khi bắt đầu build project |
 
 ## Shortlist và score
@@ -24,26 +24,40 @@ Vì sao chọn:
 * Workflow học tập rất rõ và dễ visualize before/after.
 * Có thể validate nhanh với sinh viên cùng lớp hoặc cộng đồng học AI.
 * Có thể research nhiều existing tools/pattern.
-* AI fit tự nhiên ở bước recommendation, explanation và guidance.
+* AI phù hợp vì có thể đóng vai trò hỗ trợ học tập: 
+    - gợi ý nên học gì tiếp theo,
+    - giải thích kiến thức khó,
+    - hướng dẫn build project theo từng bước.
 
 Vì sao không chọn các bài khác:
 
-* Multi-source Assignment Confusion: workflow rõ nhưng solution dễ bị giới hạn ở summarize/search.
-* Dev Environment Setup Friction: pain thật nhưng có thể chỉ cần guideline/process fix thay vì AI.
+* Multi-source Information Overload:
+
+  * Workflow rõ nhưng gần với information management hơn learning guidance.
+  * Dễ trượt sang bài toán summarize/search system khá lớn.
+* Technical Setup & Onboarding:
+
+  * Pain thật nhưng nhiều phần có thể giải bằng documentation/template.
+  * AI chưa chắc tạo khác biệt lớn hơn process chuẩn hóa.
 
 ## Quick validation
 
-Nhóm hỏi nhanh 5 sinh viên đang học AI/ML.
+Nhóm hỏi nhanh sinh viên học AI và member trong community tech.
 
 | Nguồn               | Số người | Tín hiệu xác nhận                                             | Tín hiệu phản bác                                       | Nhóm sửa problem thế nào                                                                |
 | ------------------- | -------: | ------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Quick interview     |        3 | 3/3 từng học tutorial nhưng không build project được một mình | 1 người nói chỉ cần chăm practice nhiều hơn             | Thu hẹp problem: không phải “học AI”, mà là “thiếu workflow học có context và feedback” |
 | Mini poll trong lớp |        5 | 4/5 từng bị overload roadmap/tutorial                         | Một số người thích tự explore không cần roadmap cố định | Thêm boundary: AI chỉ gợi ý và explain, không thay người học quyết định                 |
 
-Insight sau validation:
+### Insight sau validation
 
-```text
-Pain thật không nằm ở việc “thiếu tài liệu”, mà là có quá nhiều tutorial và roadmap rời rạc khiến người học không biết mình đang thiếu nền tảng gì và nên học tiếp như thế nào.
+```text id="x6ke2r"
+Pain không nằm ở việc “thiếu tài liệu”.
+
+Pain nằm ở việc:
+- có quá nhiều roadmap khác nhau,
+- sinh viên học nhanh theo trend,
+- nhưng không hiểu nền tảng hoặc không biết bước tiếp theo nên học gì.
 ```
 
 ## Research giải pháp
@@ -57,10 +71,16 @@ Nhóm tìm các hướng đã có sẵn thay vì giả định phải build agen
 | Khanmigo AI Tutor             | https://www.khanacademy.org/khan-labs      | AI tutor hỗ trợ giải thích | Có conversational guidance         | Chưa focus workflow học AI/ML thực tế | AI phù hợp vai trò mentor/explainer hơn “làm hộ”   |
 | GitHub Copilot / ChatGPT      | https://github.com/features/copilot        | Hỗ trợ code/explain        | Giúp debug và explain nhanh        | Dễ làm người học phụ thuộc copy code  | Cần boundary để tránh tutorial hell mới            |
 
-Research takeaway:
+### Research takeaway
 
-```text
-Không nên build một “AI teacher” làm toàn bộ quá trình học. Hướng hợp lý hơn là Workflow: AI giúp summarize roadmap, detect missing foundation, recommend next step và explain context; người học vẫn phải tự build project và verify hiểu biết.
+```text id="6s7kh9"
+Không nên build một “AI mentor toàn năng”.
+
+Workflow hợp lý hơn là:
+- recommend roadmap theo level,
+- giải thích concept,
+- gợi ý bước tiếp theo,
+- nhưng người học vẫn phải tự build và tự verify hiểu biết.
 ```
 
 ## Workflow before/after
@@ -68,42 +88,173 @@ Không nên build một “AI teacher” làm toàn bộ quá trình học. Hư�
 
 Nội dung workflow:
 
-```text
-CURRENT STATE — ~3-5 giờ/tuần học thiếu hiệu quả
+### CURRENT STATE — 8 bước, ~3-5 giờ/tuần học thiếu hiệu quả
 
-[1 Search roadmap/tutorial]
-→ [2 Xem YouTube/course]
-→ [3 Copy code theo tutorial]
-→ [4 Bị lỗi hoặc không hiểu]
-→ [5 Search tiếp]
-→ [6 Đổi tutorial khác]
-→ [7 Mất định hướng hoặc bỏ dở project]
+┌──────────────────────────────┐
+│ Bước 1                      │
+│ Search roadmap/tutorial     │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 20-30'                     │
+│ In: YouTube, Google          │
+│ Out: nhiều roadmap khác nhau │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 2                      │
+│ Xem course/tutorial          │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 30-60'                     │
+│ In: video/course             │
+│ Out: sample code             │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 3                      │
+│ Copy code theo tutorial      │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 20-40'                     │
+│ In: sample code              │
+│ Out: local project           │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 4                      │
+│ Build project bị lỗi         │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 30-60'                     │
+│ In: local project            │
+│ Out: error/confusion         │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 5                      │
+│ Không hiểu foundation        │
+│ (ML/LLM concepts)            │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 30-45'                     │
+│ In: error/concept            │
+│ Out: confusion               │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 6                      │
+│ Search tiếp tutorial khác    │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 20-40'                     │
+│ In: confusion                │
+│ Out: tutorial mới            │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 7                      │
+│ Đổi roadmap/tutorial         │
+│                              │
+│ Ai: Student                  │
+│ ⏱ 10-20'                     │
+│ In: tutorial mới             │
+│ Out: workflow mới            │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 8                      │
+│ Mất định hướng / bỏ project  │
+│                              │
+│ Ai: Student                  │
+│ ⏱ khó đo                     │
+│ In: learning overload        │
+│ Out: unfinished project      │
+└──────────────────────────────┘
 
-Bottleneck:
+
+🔴 Bottleneck:
 - Không biết thiếu foundation gì
 - Không biết bước tiếp theo nên học gì
 - Học nhiều nhưng không build được project độc lập
-```
 
-```text
-FUTURE STATE — workflow học có guidance
+⏱ Tổng effort: ~3-5 giờ/tuần nhưng hiệu quả thấp
 
-[1 Input goal + background]
-→ [2 AI generate learning roadmap]
-→ [3 AI suggest project/tutorial phù hợp]
-→ [4 Người học build project]
-→ [5 AI explain lỗi hoặc concept]
-→ [6 Người học review + continue learning]
+### FUTURE STATE — 6 bước, ~45-60 phút setup learning workflow
 
-Human boundary:
-- Người học tự code, tự quyết định hướng học
-- AI không làm project thay
+┌──────────────────────────────┐
+│ Bước 1                      │
+│ Input goal + background      │
+│                              │
+│ 🟢 Human                     │
+│ ⏱ 5'                         │
+│ In: skill + goal             │
+│ Out: learner profile         │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 2                      │
+│ AI recommend roadmap         │
+│                              │
+│ 🔵 Workflow step             │
+│ ⏱ 1-2'                       │
+│ In: learner profile          │
+│ Out: roadmap phù hợp         │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 3                      │
+│ AI suggest project/tutorial  │
+│                              │
+│ 🔵 Workflow step             │
+│ ⏱ 1-2'                       │
+│ In: roadmap                  │
+│ Out: suggested project       │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 4                      │
+│ Student build project        │
+│                              │
+│ 🟢 Human                     │
+│ ⏱ 30-40'                     │
+│ In: project/task             │
+│ Out: implementation          │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 5                      │
+│ AI explain lỗi/concept       │
+│                              │
+│ 🔵 Workflow step             │
+│ ⏱ 2-5'                       │
+│ In: error/question           │
+│ Out: explanation/guidance    │
+└──────────────────────────────┘
+                ↓
+┌──────────────────────────────┐
+│ Bước 6                      │
+│ Student review + continue    │
+│                              │
+│ 🟢 Human boundary            │
+│ ⏱ ongoing                    │
+│ In: explanation              │
+│ Out: deeper understanding    │
+└──────────────────────────────┘
+
+
+🔵 = AI hỗ trợ workflow  
+🟢 = Human boundary
 
 Fallback:
-- AI recommendation không phù hợp → dùng curated roadmap cố định
-```
+AI recommend sai level → dùng curated roadmap cố định.
 
-Before/after impact:
+Bottleneck mới:
+Student practice + self-learning.
+Đây là bottleneck chấp nhận được vì learning thật vẫn cần tự thực hành.
+
+⏱ Tổng setup workflow: ~45-60 phút, giảm đáng kể thời gian learning 
+
+### Before/after impact
 
 | Metric                         |                  Trước |          Sau kỳ vọng | Ghi chú                     |
 | ------------------------------ | ---------------------: | -------------------: | --------------------------- |

@@ -53,21 +53,19 @@ Sinh viên phải đọc nhiều nguồn rời rạc (Discord, Notion, PDF, GitH
 
 ## Current Workflow
 
-```text
-CURRENT STATE — ~45 phút
+```mermaid
+flowchart TD
+    A[Nhận assignment] --> B[Đọc PDF lab]
+    B --> C[Đọc Discord thread]
+    C --> D[Check pinned messages]
+    D --> E[Mở GitHub repo]
+    E --> F[Hỏi bạn bè/team]
+    F --> G[Tự tổng hợp requirement]
+    G --> H[Bắt đầu làm bài]
 
-[Đọc PDF lab]
-→ [Đọc Discord thread]
-→ [Check pinned messages]
-→ [Mở GitHub repo]
-→ [Hỏi bạn bè/TA]
-→ [Tự tổng hợp requirement]  <-- bottleneck
-→ [Bắt đầu làm bài]
+    G:::bottleneck
 
-Pain:
-- Requirement nằm rải rác
-- Dễ miss update mới
-- Không biết source nào là final
+    classDef bottleneck fill:#ffb3b3,stroke:#ff4d4d,stroke-width:2px;
 ```
 
 ---
@@ -110,21 +108,19 @@ Tự tổng hợp requirement từ nhiều nguồn khác nhau.
 
 ## Future Workflow
 
-```text
-FUTURE STATE — ~8 phút
+```mermaid
+flowchart TD
+    A[Upload PDF + Discord + GitHub] --> B[Extract requirements]
+    B --> C[Merge duplicated info]
+    C --> D[Generate checklist + summary]
+    D --> E[Student review]
+    E --> F[Start assignment]
 
-[Upload PDF + Discord + GitHub]
-→ [Extract requirements]
-→ [Merge duplicated info]
-→ [Generate checklist + summary]
-→ [Student review]
-→ [Start assignment]
+    D:::ai
+    E:::human
 
-Human boundary:
-- Student verify final requirement trước submit
-
-Fallback:
-- AI unsure → show source reference
+    classDef ai fill:#cce5ff,stroke:#3399ff,stroke-width:2px;
+    classDef human fill:#d5f5d5,stroke:#33aa33,stroke-width:2px;
 ```
 
 ---
@@ -188,10 +184,7 @@ Sinh viên vẫn phải:
 * Requirement conflict giữa nhiều source xử lý thế nào
 * Discord context có đủ clean để summarize không
 
-````
-
-:::writing{variant="document" id="39417"}
-
+---
 
 # Problem Card #2 — Weekly Report Generation
 
@@ -203,29 +196,34 @@ PM/team lead mất nhiều thời gian tổng hợp progress từ Jira, Slack v�
 
 ## Actor
 
-- PM
-- Team lead
-- Engineering manager
+* PM
+* Team lead
+* Engineering manager
+
+---
+
+## Thời điểm / bối cảnh
+
+* Cuối tuần hoặc trước weekly meeting
+* Khi phải gửi progress update cho manager/stakeholder
+* Khi update nằm ở nhiều tool khác nhau
 
 ---
 
 ## Current Workflow
 
-```text
-CURRENT STATE — ~60 phút
+```mermaid
+flowchart TD
+    A[Export Jira progress] --> B[Đọc Slack updates]
+    B --> C[Check GitHub commits/PR]
+    C --> D[Manual summary]
+    D --> E[Viết narrative]
+    E --> F[Send report]
 
-[Export Jira progress]
-→ [Đọc Slack update]
-→ [Check GitHub commits/PR]
-→ [Manual summary]
-→ [Viết narrative] <-- bottleneck
-→ [Send report]
+    E:::bottleneck
 
-Pain:
-- Data nằm nhiều source
-- Narrative viết thủ công
-- Dễ miss blocker/update
-````
+    classDef bottleneck fill:#ffb3b3,stroke:#ff4d4d,stroke-width:2px;
+```
 
 ---
 
@@ -264,20 +262,18 @@ Viết narrative tổng hợp từ nhiều nguồn khác nhau.
 
 ## Future Workflow
 
-```text
-FUTURE STATE — ~10 phút
+```mermaid
+flowchart TD
+    A[Pull Jira + Slack + GitHub] --> B[AI summarize progress]
+    B --> C[AI draft narrative]
+    C --> D[PM review/edit]
+    D --> E[Send report]
 
-[Pull Jira + Slack + GitHub]
-→ [AI summarize progress]
-→ [AI draft narrative]
-→ [PM review/edit]
-→ [Send report]
+    C:::ai
+    D:::human
 
-Human boundary:
-- PM review final narrative
-
-Fallback:
-- AI draft tệ → PM rewrite section đó
+    classDef ai fill:#cce5ff,stroke:#3399ff,stroke-width:2px;
+    classDef human fill:#d5f5d5,stroke:#33aa33,stroke-width:2px;
 ```
 
 ---
@@ -307,13 +303,11 @@ AI có thể:
 * [x] Workflow
 * [ ] Agent
 
-````
-
-:::writing{variant="document" id="51742"}
+---
 
 # Problem Card #3 — Discord Decision Search
 
-## Problem 
+## Problem
 
 Team member khó tìm lại decision cũ trong Discord/thread dài khi tiếp tục công việc.
 
@@ -321,30 +315,35 @@ Team member khó tìm lại decision cũ trong Discord/thread dài khi tiếp t�
 
 ## Actor
 
-- Developer
-- PM
-- Designer
-- Team member mới
+* Developer
+* PM
+* Designer
+* Team member mới
+
+---
+
+## Thời điểm / bối cảnh
+
+* Khi tiếp tục task cũ
+* Khi onboarding member mới
+* Khi cần verify decision trước đó
 
 ---
 
 ## Current Workflow
 
-```text
-CURRENT STATE — ~15 phút/lần tìm
+```mermaid
+flowchart TD
+    A[Nhớ keyword mơ hồ] --> B[Search Discord]
+    B --> C[Mở nhiều thread]
+    C --> D[Đọc lại context]
+    D --> E[Hỏi lại team]
+    E --> F[Tìm được decision]
 
-[Nhớ keyword mơ hồ]
-→ [Search Discord]
-→ [Mở nhiều thread]
-→ [Đọc lại context]
-→ [Hỏi lại team]
-→ [Tìm được decision]
+    B:::bottleneck
 
-Pain:
-- Search Discord kém
-- Context bị phân mảnh
-- Decision không centralized
-````
+    classDef bottleneck fill:#ffb3b3,stroke:#ff4d4d,stroke-width:2px;
+```
 
 ---
 
@@ -383,20 +382,18 @@ Search và reconstruct context từ thread cũ.
 
 ## Future Workflow
 
-```text
-FUTURE STATE — ~2 phút
+```mermaid
+flowchart TD
+    A[Input vague question] --> B[Search semantic context]
+    B --> C[Find related thread]
+    C --> D[Summarize decision]
+    D --> E[Show source reference]
 
-[Input vague question]
-→ [Search semantic context]
-→ [Find related thread]
-→ [Summarize decision]
-→ [Show source reference]
+    D:::ai
+    E:::human
 
-Human boundary:
-- User verify final context
-
-Fallback:
-- Không chắc → show raw thread
+    classDef ai fill:#cce5ff,stroke:#3399ff,stroke-width:2px;
+    classDef human fill:#d5f5d5,stroke:#33aa33,stroke-width:2px;
 ```
 
 ---
@@ -425,7 +422,3 @@ AI có thể:
 * [ ] Rule
 * [x] Workflow
 * [ ] Agent
-
-```
-```
-

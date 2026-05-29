@@ -29,7 +29,7 @@
 
 # Problem Card #1 — Multi-source Assignment Confusion
 
-## Problem 1 câu
+## Problem
 
 Sinh viên phải đọc nhiều nguồn rời rạc (Discord, Notion, PDF, GitHub) để biết chính xác cần làm gì trước deadline.
 
@@ -37,63 +37,128 @@ Sinh viên phải đọc nhiều nguồn rời rạc (Discord, Notion, PDF, GitH
 
 ## Actor
 
-* Sinh viên học tech
-* Team member mới
+* Sinh viên học tech/project-based course
+* Team member mới tham gia project/lab
+* Người chưa quen workflow của lớp/team
+
+---
+
+## Thời điểm / bối cảnh
+
+* Trước deadline lab/project
+* Khi assignment bị update qua Discord thread
+* Khi requirement nằm ở nhiều source khác nhau
 
 ---
 
 ## Current Workflow
 
-```mermaid
-flowchart TD
-    A[Đọc PDF] --> B[Đọc Discord]
-    B --> C[Check pinned message]
-    C --> D[Mở GitHub repo]
-    D --> E[Hỏi bạn bè]
-    E --> F[Tự tổng hợp requirement]
-    F --> G[Bắt đầu làm bài]
+```text
+CURRENT STATE — ~45 phút
 
-    F:::bottleneck
+[Đọc PDF lab]
+→ [Đọc Discord thread]
+→ [Check pinned messages]
+→ [Mở GitHub repo]
+→ [Hỏi bạn bè/TA]
+→ [Tự tổng hợp requirement]  <-- bottleneck
+→ [Bắt đầu làm bài]
 
-    classDef bottleneck fill:#ffb3b3,stroke:#ff4d4d,stroke-width:2px;
+Pain:
+- Requirement nằm rải rác
+- Dễ miss update mới
+- Không biết source nào là final
 ```
 
 ---
 
 ## Bottleneck
 
-* Requirement nằm rải rác
-* Dễ miss update trong Discord
-* Mất nhiều thời gian verify requirement
+### Bước nghẽn nhất
+
+Tự tổng hợp requirement từ nhiều nguồn khác nhau.
+
+### Pain cụ thể
+
+* Requirement không nằm cùng một nơi
+* Discord thường có update mới nhưng khó tìm lại
+* Sinh viên phải tự verify requirement
+* Dễ submit sai format hoặc thiếu file
 
 ---
 
-## Future Workflow
+## Impact
 
-```mermaid
-flowchart TD
-    A[Upload PDF + Discord + GitHub] --> B[Extract requirements]
-    B --> C[Merge duplicated info]
-    C --> D[Generate checklist]
-    D --> E[Student review]
-    E --> F[Start assignment]
-
-    D:::ai
-    E:::human
-
-    classDef ai fill:#cce5ff,stroke:#3399ff,stroke-width:2px;
-    classDef human fill:#d5f5d5,stroke:#33aa33,stroke-width:2px;
-```
+* Sinh viên mất nhiều thời gian chỉ để hiểu cần làm gì
+* Hỏi lặp lại nhiều trong Discord trước deadline
+* TA/mentor phải trả lời cùng một dạng câu hỏi
+* Member mới khó onboarding vào workflow lớp/project
+* Một số bài submit thiếu requirement hoặc sai format
 
 ---
 
 ## Success Metric
 
-| Metric               | Current      | Expected     |
-| -------------------- | ------------ | ------------ |
-| Time hiểu assignment | 45 phút      | dưới 10 phút |
-| Số lần hỏi lại       | 5 lần/team   | dưới 1 lần   |
-| Miss requirement     | Thỉnh thoảng | hiếm         |
+| Metric                | Current      | Expected     |
+| --------------------- | ------------ | ------------ |
+| Time hiểu assignment  | ~45 phút     | dưới 10 phút |
+| Số lần hỏi lại        | 5 lần/team   | dưới 1 lần   |
+| Miss requirement      | Thỉnh thoảng | hiếm         |
+| Onboarding member mới | 30+ phút     | dưới 10 phút |
+
+---
+
+## Future Workflow
+
+```text
+FUTURE STATE — ~8 phút
+
+[Upload PDF + Discord + GitHub]
+→ [Extract requirements]
+→ [Merge duplicated info]
+→ [Generate checklist + summary]
+→ [Student review]
+→ [Start assignment]
+
+Human boundary:
+- Student verify final requirement trước submit
+
+Fallback:
+- AI unsure → show source reference
+```
+
+---
+
+## Non-AI Alternative
+
+* Gom toàn bộ requirement vào một source duy nhất
+* Standardized assignment template
+* Mentor update requirement rõ hơn
+* FAQ cố định cho từng lab
+
+---
+
+## AI Hypothesis
+
+AI có thể:
+
+* đọc nhiều nguồn cùng lúc,
+* extract requirement,
+* detect duplicated/conflicting info,
+* generate checklist dễ hiểu,
+* highlight update quan trọng.
+
+---
+
+## Boundary
+
+AI không tự quyết định requirement cuối cùng hoặc override instruction từ mentor/TA.
+
+Sinh viên vẫn phải:
+
+* review checklist,
+* verify submission format,
+* kiểm tra requirement quan trọng.
 
 ---
 
@@ -103,60 +168,264 @@ flowchart TD
 * [ ] Rule
 * [x] Workflow
 * [ ] Agent
+* [ ] Chưa biết
 
 ---
+
+## Vì sao tôi chọn bài này
+
+* Pain thật và dễ gặp
+* Workflow rõ
+* Có bottleneck cụ thể
+* Impact đo được
+* AI fit tự nhiên nhưng chưa cần Agent
+
+---
+
+## Điều còn chưa chắc
+
+* AI extract requirement có đủ chính xác không
+* Requirement conflict giữa nhiều source xử lý thế nào
+* Discord context có đủ clean để summarize không
+
+````
+
+:::writing{variant="document" id="39417"}
+
 
 # Problem Card #2 — Weekly Report Generation
 
-## Problem 1 câu
+## Problem
 
 PM/team lead mất nhiều thời gian tổng hợp progress từ Jira, Slack và GitHub để viết weekly report.
 
-## Current Workflow
+---
 
-```mermaid
-flowchart LR
-    A[Jira] --> D[Manual summary]
-    B[Slack] --> D
-    C[GitHub] --> D
-    D --> E[Viết narrative]
-    E --> F[Send report]
+## Actor
 
-    D:::bottleneck
-
-    classDef bottleneck fill:#ffb3b3,stroke:#ff4d4d,stroke-width:2px;
-```
-
-## Quick Gut
-
-* [ ] Rule
-* [x] Workflow
-* [ ] Agent
+- PM
+- Team lead
+- Engineering manager
 
 ---
 
-# Problem Card #3 — Discord Decision Search
-
-## Problem 1 câu
-
-Team member khó tìm lại decision cũ trong Discord/thread dài khi tiếp tục công việc.
-
 ## Current Workflow
 
-```mermaid
-flowchart TD
-    A[Nhớ keyword mơ hồ] --> B[Search Discord]
-    B --> C[Đọc nhiều thread]
-    C --> D[Hỏi lại team]
-    D --> E[Tìm được decision]
+```text
+CURRENT STATE — ~60 phút
 
-    B:::bottleneck
+[Export Jira progress]
+→ [Đọc Slack update]
+→ [Check GitHub commits/PR]
+→ [Manual summary]
+→ [Viết narrative] <-- bottleneck
+→ [Send report]
 
-    classDef bottleneck fill:#ffb3b3,stroke:#ff4d4d,stroke-width:2px;
+Pain:
+- Data nằm nhiều source
+- Narrative viết thủ công
+- Dễ miss blocker/update
+````
+
+---
+
+## Bottleneck
+
+### Bước nghẽn nhất
+
+Viết narrative tổng hợp từ nhiều nguồn khác nhau.
+
+### Pain cụ thể
+
+* Progress update không đồng nhất format
+* Phải tự nối context giữa task/chat/code
+* Viết report mất nhiều thời gian mỗi tuần
+
+---
+
+## Impact
+
+* PM/team lead mất 45-60 phút mỗi tuần
+* Report quality không đồng đều
+* Dễ miss blocker hoặc dependency
+* Team thiếu visibility về tiến độ
+
+---
+
+## Success Metric
+
+| Metric                 | Current      | Expected     |
+| ---------------------- | ------------ | ------------ |
+| Time viết report       | ~60 phút     | dưới 10 phút |
+| Missing blocker/update | Thỉnh thoảng | hiếm         |
+| Manual summary steps   | 4-5 bước     | 1-2 bước     |
+
+---
+
+## Future Workflow
+
+```text
+FUTURE STATE — ~10 phút
+
+[Pull Jira + Slack + GitHub]
+→ [AI summarize progress]
+→ [AI draft narrative]
+→ [PM review/edit]
+→ [Send report]
+
+Human boundary:
+- PM review final narrative
+
+Fallback:
+- AI draft tệ → PM rewrite section đó
 ```
+
+---
+
+## Non-AI Alternative
+
+* Standardized update template
+* Team update progress theo format cố định
+* Weekly checklist/report structure
+
+---
+
+## AI Hypothesis
+
+AI có thể:
+
+* summarize progress,
+* group updates,
+* detect blocker,
+* generate readable narrative.
+
+---
 
 ## Quick Gut
 
 * [ ] Rule
 * [x] Workflow
 * [ ] Agent
+
+````
+
+:::writing{variant="document" id="51742"}
+
+# Problem Card #3 — Discord Decision Search
+
+## Problem 
+
+Team member khó tìm lại decision cũ trong Discord/thread dài khi tiếp tục công việc.
+
+---
+
+## Actor
+
+- Developer
+- PM
+- Designer
+- Team member mới
+
+---
+
+## Current Workflow
+
+```text
+CURRENT STATE — ~15 phút/lần tìm
+
+[Nhớ keyword mơ hồ]
+→ [Search Discord]
+→ [Mở nhiều thread]
+→ [Đọc lại context]
+→ [Hỏi lại team]
+→ [Tìm được decision]
+
+Pain:
+- Search Discord kém
+- Context bị phân mảnh
+- Decision không centralized
+````
+
+---
+
+## Bottleneck
+
+### Bước nghẽn nhất
+
+Search và reconstruct context từ thread cũ.
+
+### Pain cụ thể
+
+* Không nhớ đúng keyword
+* Decision nằm giữa nhiều thread
+* Team phải trả lời lại cùng context
+
+---
+
+## Impact
+
+* Mất 10-15 phút mỗi lần tìm
+* Team bị interrupt bởi câu hỏi lặp lại
+* Decision dễ bị hiểu sai
+* Member mới khó hiểu historical context
+
+---
+
+## Success Metric
+
+| Metric               | Current    | Expected     |
+| -------------------- | ---------- | ------------ |
+| Time search decision | 10-15 phút | dưới 2 phút  |
+| Số lần hỏi lại       | nhiều      | giảm đáng kể |
+| Context missing      | thường gặp | hiếm         |
+
+---
+
+## Future Workflow
+
+```text
+FUTURE STATE — ~2 phút
+
+[Input vague question]
+→ [Search semantic context]
+→ [Find related thread]
+→ [Summarize decision]
+→ [Show source reference]
+
+Human boundary:
+- User verify final context
+
+Fallback:
+- Không chắc → show raw thread
+```
+
+---
+
+## Non-AI Alternative
+
+* Better documentation
+* Decision log riêng
+* Structured meeting notes
+
+---
+
+## AI Hypothesis
+
+AI có thể:
+
+* semantic search,
+* summarize thread,
+* reconstruct context,
+* link related discussion.
+
+---
+
+## Quick Gut
+
+* [ ] Rule
+* [x] Workflow
+* [ ] Agent
+
+```
+```
+

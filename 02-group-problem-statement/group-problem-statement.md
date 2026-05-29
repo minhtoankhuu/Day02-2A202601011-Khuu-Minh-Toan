@@ -13,7 +13,7 @@
 | Candidate                         | Actor rõ | Workflow rõ | Pain có evidence | Impact đo được | Làm trong lab | So sánh R/W/A được | Nhóm hiểu domain | Tổng |
 | --------------------------------- | -------: | ----------: | ---------------: | -------------: | ------------: | -----------------: | ---------------: | ---: |
 | AI Learning Roadmap Overload      |        5 |           5 |                5 |              4 |             5 |                  5 |                5 |   34 |
-| Multi-source Assignment Confusion |        5 |           5 |                4 |              5 |             5 |                  4 |                5 |   33 |
+| Multi-source Assignment Confusion |        4 |           4 |                4 |              5 |             5 |                  4 |                4 |   30 |
 | Dev Environment Setup Friction    |        4 |           4 |                5 |              4 |             4 |                  3 |                4 |   28 |
 
 Nhóm chọn: **AI Learning Roadmap Overload**.
